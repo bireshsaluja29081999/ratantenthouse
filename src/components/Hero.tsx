@@ -1,11 +1,12 @@
-import { Phone, MessageCircle, Sparkles } from 'lucide-react';
+import { Phone, MessageCircle, Sparkles, Mail } from 'lucide-react';
 import heroImage from '@/assets/gallery/entrance-2.jpg';
 
 const Hero = () => {
   const whatsappMessage = encodeURIComponent(
     "Hello, I want details for wedding decoration and event setup."
   );
-  const phoneNumber = "6387080842";
+  const phoneNumbers = ["6387080842", "6392730761", "7800088848"];
+  const email = "ratantentrbl@gmail.com";
 
   return (
     <section
@@ -82,7 +83,7 @@ const Hero = () => {
           {/* Elegant CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5 opacity-0 animate-scale-in" style={{ animationDelay: '0.9s' }}>
             <a
-              href={`tel:${phoneNumber}`}
+              href={`tel:${phoneNumbers[0]}`}
               className="group relative flex items-center gap-4 bg-gradient-to-r from-primary to-burgundy-light hover:from-burgundy-light hover:to-primary text-primary-foreground px-10 py-5 rounded-full text-lg font-medium transition-all duration-500 hover:scale-105 shadow-2xl hover:shadow-gold/20 w-full sm:w-auto justify-center overflow-hidden"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/10 to-gold/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
@@ -91,7 +92,7 @@ const Hero = () => {
             </a>
 
             <a
-              href={`https://wa.me/91${phoneNumber}?text=${whatsappMessage}`}
+              href={`https://wa.me/91${phoneNumbers[0]}?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative flex items-center gap-4 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-600 text-white px-10 py-5 rounded-full text-lg font-medium transition-all duration-500 hover:scale-105 shadow-2xl hover:shadow-emerald-500/20 w-full sm:w-auto justify-center overflow-hidden"
@@ -100,6 +101,42 @@ const Hero = () => {
               <MessageCircle size={22} fill="white" className="relative z-10" />
               <span className="relative z-10 tracking-wide">WhatsApp</span>
             </a>
+          </div>
+
+          {/* Contact Info */}
+          <div className="mt-10 opacity-0 animate-fade-in" style={{ animationDelay: '1s' }}>
+            <div className="glass-effect elegant-border rounded-2xl px-8 py-6 inline-block">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
+                {/* Phone Numbers */}
+                <div className="flex flex-wrap items-center justify-center gap-4">
+                  {phoneNumbers.map((phone, index) => (
+                    <a
+                      key={phone}
+                      href={`tel:${phone}`}
+                      className="flex items-center gap-2 text-cream/90 hover:text-gold transition-colors duration-300"
+                    >
+                      <Phone size={16} className="text-gold/70" />
+                      <span className="text-sm tracking-wide">+91 {phone}</span>
+                      {index < phoneNumbers.length - 1 && (
+                        <span className="hidden md:inline text-gold/30 ml-2">|</span>
+                      )}
+                    </a>
+                  ))}
+                </div>
+                
+                {/* Divider */}
+                <div className="hidden md:block w-px h-6 bg-gold/30" />
+                
+                {/* Email */}
+                <a
+                  href={`mailto:${email}`}
+                  className="flex items-center gap-2 text-cream/90 hover:text-gold transition-colors duration-300"
+                >
+                  <Mail size={16} className="text-gold/70" />
+                  <span className="text-sm tracking-wide">{email}</span>
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Location Badge */}
