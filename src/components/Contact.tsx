@@ -4,7 +4,7 @@ const Contact = () => {
   const whatsappMessage = encodeURIComponent(
     "Hello, I want details for wedding decoration and event setup."
   );
-  const phoneNumbers = ["6387080842", "6392730761", "7800088848"];
+  const phoneNumbers = ["6387080842", "6392730761", "9415173882"];
   const email = "ratantentrbl@gmail.com";
 
   return (
